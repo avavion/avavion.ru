@@ -2,7 +2,7 @@ import React from "react";
 import Circle from "../components/Circle";
 import { NavLink } from "react-router-dom";
 
-const circleColorMatrix = [
+const COLORS_MATRIX = [
   ["#FF67F7", "#FF67F7", "#FF67F7", "#FF67F7", "#FF67F7"],
   ["#936DF9", "#936DF9", "#936DF9", "#936DF9", "#936DF9"],
   ["#59ABF7", "#59ABF7", "#59ABF7", "#59ABF7", "#59ABF7"],
@@ -10,7 +10,7 @@ const circleColorMatrix = [
   ["#F6CD5D", "#F6CD5D", "#F6CD5D", "#F6CD5D", "#F6CD5D"],
 ];
 
-const circleSize = 48;
+const CIRCLE_SIZE = 48;
 
 const HomePage = () => {
   return (
@@ -21,7 +21,9 @@ const HomePage = () => {
             <div className='text-block'>
               <h2 className='heading'>Hey, I’m Alan!</h2>
               <p className='text'>
-                <span>Welcome to my digital garden. 🌱</span>
+                <span>
+                  Welcome to my digital garden. <span className='xl'>🌱</span>
+                </span>
                 <span>
                   I’m a software developer in Kazan. I make web app, write about
                   code and life. I like teaching, self-development, listening to
@@ -33,16 +35,16 @@ const HomePage = () => {
             <div
               className='circles'
               style={{
-                gridTemplateColumns: `repeat(${circleColorMatrix.length}, ${circleSize}px)`,
-                gridTemplateRows: `repeat(${circleColorMatrix.length}, ${circleSize}px)`,
-                gap: circleSize / 2,
+                gridTemplateColumns: `repeat(${COLORS_MATRIX.length}, ${CIRCLE_SIZE}px)`,
+                gridTemplateRows: `repeat(${COLORS_MATRIX.length}, ${CIRCLE_SIZE}px)`,
+                gap: CIRCLE_SIZE / 2,
               }}
             >
-              {circleColorMatrix.map((colors, parentIndex) => {
+              {COLORS_MATRIX.map((colors, parentIndex) => {
                 return colors.map((color, index) => {
                   return (
                     <Circle
-                      size={circleSize}
+                      size={CIRCLE_SIZE}
                       color={color}
                       key={`${parentIndex}${index}`}
                     />

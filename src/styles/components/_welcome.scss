@@ -1,4 +1,5 @@
 .welcome {
+  position: relative;
   --heading: #fff;
   --text: #e6e6e6;
 
@@ -35,10 +36,32 @@
     display: flex;
     flex-direction: column;
     gap: calc(var(--fz) / 2);
+
+    .xl {
+      font-size: calc(var(--fz) * 2);
+    }
   }
 
   .heading {
     font-weight: 700;
     font-size: calc(var(--fz) * 4);
+  }
+
+  @media screen and (max-width: 576px) {
+    margin-top: 0;
+
+    .wrapper {
+      flex-direction: column;
+    }
+
+    .circles {
+      position: absolute;
+
+      grid-template-columns: repeat(5, calc(100vw / 7.5)) !important;
+      grid-template-rows: repeat(5, calc(100vh / 15)) !important;
+      filter: blur(100px);
+
+      z-index: -1;
+    }
   }
 }

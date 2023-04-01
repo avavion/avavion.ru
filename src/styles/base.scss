@@ -26,7 +26,7 @@
   --gray-10: #181818;
 
   --container-width: 1060px;
-  --container-offset: 15px;
+  --container-offset: 30px;
 
   --body-bg: #181818;
 }
@@ -34,6 +34,12 @@
 @media (prefers-color-scheme: light) {
   :root {
     --body-bg: #eee;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  :root {
+    --fz: 14px;
   }
 }
 
@@ -63,9 +69,7 @@ ul {
 }
 
 .section {
-  &:not(:first-child) {
-    margin-top: 64px;
-  }
+  margin-top: 64px;
 
   &-header {
     display: flex;
