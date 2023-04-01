@@ -1,0 +1,55 @@
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  // grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+
+  .card {
+    padding: 24px 24px 32px 24px;
+    background-color: #1f1f1f;
+    border: 1px solid #2c2c2c;
+    border-radius: 6px;
+    color: #ffffff;
+
+    &__year {
+      font-weight: 500;
+      font-size: calc(var(--fz) * 0.75);
+      line-height: 15px;
+      color: #f57ad0;
+      margin-bottom: 2px;
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: calc(var(--fz) * 1.125);
+      line-height: 22px;
+      margin-bottom: 8px;
+    }
+
+    &__text {
+      font-size: calc(var(--fz) * 0.875);
+      line-height: 17px;
+      color: #999999;
+      margin-bottom: 16px;
+    }
+
+    .tags {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+
+      .tag {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 16px;
+        gap: 10px;
+        background-color: #252525;
+        border-radius: 24px;
+      }
+    }
+  }
+}

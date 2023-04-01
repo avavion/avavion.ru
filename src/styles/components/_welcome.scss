@@ -1,0 +1,36 @@
+.welcome {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 140px;
+  }
+
+  .circles {
+    display: grid;
+  }
+
+  .text-block {
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .text {
+    font-weight: 500;
+    font-size: calc(var(--fz) * 1.5);
+    color: #e6e6e6;
+
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--fz) / 2);
+  }
+
+  .heading {
+    font-weight: 700;
+    font-size: calc(var(--fz) * 4);
+  }
+}

@@ -1,0 +1,30 @@
+// @media () {
+
+// }
+
+.header {
+  margin-bottom: 32px;
+  padding: 32px 0;
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+
+    .menu {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+
+      & .link {
+        font-weight: 500;
+        font-size: var(--fz);
+        color: #bbbbbb;
+      }
+    }
+  }
+}
