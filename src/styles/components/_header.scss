@@ -17,6 +17,21 @@
     gap: 20px;
   }
 
+  .logotype a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 12px;
+
+    span {
+      font-weight: 700;
+      font-size: calc(var(--fz) * 1.25);
+      color: #f9f9f9;
+    }
+  }
+
   .navbar {
     display: flex;
     flex-direction: row;

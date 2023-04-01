@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { AlienIcon } from "./Icons";
 
 const Header = () => {
   return (
@@ -7,7 +8,10 @@ const Header = () => {
       <div className='container'>
         <div className='row'>
           <div className='logotype'>
-            <NavLink to='/'></NavLink>
+            <NavLink to='/'>
+              <AlienIcon size={48} />
+              <span>Alan Bogov</span>
+            </NavLink>
           </div>
         </div>
 
