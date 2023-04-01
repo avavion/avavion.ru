@@ -1,4 +1,12 @@
 .welcome {
+  --heading: #fff;
+  --text: #e6e6e6;
+
+  @media (prefers-color-scheme: light) {
+    --heading: #252525;
+    --text: #2c2c2c;
+  }
+
   .wrapper {
     display: flex;
     flex-direction: row;
@@ -12,7 +20,7 @@
   }
 
   .text-block {
-    color: #ffffff;
+    color: var(--heading);
 
     display: flex;
     flex-direction: column;
@@ -22,7 +30,7 @@
   .text {
     font-weight: 500;
     font-size: calc(var(--fz) * 1.5);
-    color: #e6e6e6;
+    color: var(--text);
 
     display: flex;
     flex-direction: column;

@@ -3,6 +3,12 @@
 // }
 
 .header {
+  --link: #bbbbbb;
+
+  @media (prefers-color-scheme: light) {
+    --link: var(--gray-9);
+  }
+
   margin-bottom: 32px;
   padding: 32px 0;
   .container {
@@ -21,9 +27,30 @@
       gap: 32px;
 
       & .link {
+        display: block;
+        position: relative;
         font-weight: 500;
         font-size: var(--fz);
-        color: #bbbbbb;
+        color: var(--link);
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: -0.1em;
+          height: 2px;
+          border-radius: 8px;
+
+          background-color: violet;
+
+          transition: all 0.3s ease-in-out;
+        }
+
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
       }
     }
   }
