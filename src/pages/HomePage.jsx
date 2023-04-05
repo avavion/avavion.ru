@@ -1,18 +1,61 @@
-import React from "react";
-import Circle from "../components/Circle";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Circles from "../components/Circles/Circles";
+import Card from "../components/Card";
 
-const COLORS_MATRIX = [
-  ["#FF67F7", "#FF67F7", "#FF67F7", "#FF67F7", "#FF67F7"],
-  ["#936DF9", "#936DF9", "#936DF9", "#936DF9", "#936DF9"],
-  ["#59ABF7", "#59ABF7", "#59ABF7", "#59ABF7", "#59ABF7"],
-  ["#5EDDAC", "#5EDDAC", "#5EDDAC", "#5EDDAC", "#5EDDAC"],
-  ["#F6CD5D", "#F6CD5D", "#F6CD5D", "#F6CD5D", "#F6CD5D"],
+const intialStateCards = [
+  {
+    id: 1,
+    title: "PharmaBoosters",
+    text: "Finalizing the theme and fixing bugs",
+    year: 2020,
+    tags: ["Shopify", "Freelance"],
+  },
+
+  {
+    id: 2,
+    title: "Potted",
+    text: "Refining the customer's theme",
+    year: 2020,
+    tags: ["Shopify", "Freelance"],
+  },
+
+  {
+    id: 3,
+    title: "12Storezz",
+    text: "Finalizing the theme and developing letters",
+    year: 2020,
+    tags: ["Shopify", "Freelance"],
+  },
+
+  {
+    id: 4,
+    title: "ParrotPercel",
+    text: "Website Theme Development",
+    year: 2020,
+    tags: ["Shopify", "Freelance"],
+  },
+
+  {
+    id: 5,
+    title: "BEGGANI",
+    text: "Revising an existing website theme",
+    year: 2022,
+    tags: ["Shopify", "Freelance"],
+  },
+
+  {
+    id: 6,
+    title: "LED Ligths Design",
+    text: "Developing a website theme",
+    year: 2022,
+    tags: ["Shopify", "Freelance"],
+  },
 ];
 
-const CIRCLE_SIZE = 48;
-
 const HomePage = () => {
+  const [cards, setCards] = useState(intialStateCards);
+
   return (
     <>
       <section className='section welcome'>
@@ -32,26 +75,7 @@ const HomePage = () => {
               </p>
             </div>
 
-            <div
-              className='circles'
-              style={{
-                gridTemplateColumns: `repeat(${COLORS_MATRIX.length}, ${CIRCLE_SIZE}px)`,
-                gridTemplateRows: `repeat(${COLORS_MATRIX.length}, ${CIRCLE_SIZE}px)`,
-                gap: CIRCLE_SIZE / 2,
-              }}
-            >
-              {COLORS_MATRIX.map((colors, parentIndex) => {
-                return colors.map((color, index) => {
-                  return (
-                    <Circle
-                      size={CIRCLE_SIZE}
-                      color={color}
-                      key={`${parentIndex}${index}`}
-                    />
-                  );
-                });
-              })}
-            </div>
+            <Circles />
           </div>
         </div>
       </section>
@@ -67,83 +91,21 @@ const HomePage = () => {
           </header>
 
           <div className='projects'>
-            {/* Cards */}
-            <article className='card'>
-              <p className='card__year'>2020</p>
-              <h3 className='card__title'>
-                <NavLink className='card__link'>PharmaBoosters</NavLink>
-              </h3>
-              <p className='card__text'>Finalizing the theme and fixing bugs</p>
-              <div className='tags card__tags'>
-                <div className='tag card__tag'>Shopify</div>
-                <div className='tag card__tag'>Freelance</div>
-              </div>
-            </article>
-
-            <article className='card'>
-              <p className='card__year'>2020</p>
-              <h3 className='card__title'>
-                <NavLink className='card__link'>Potted</NavLink>
-              </h3>
-              <p className='card__text'>Refining the customer's theme</p>
-              <div className='tags card__tags'>
-                <div className='tag card__tag'>Shopify</div>
-                <div className='tag card__tag'>Freelance</div>
-              </div>
-            </article>
-
-            <article className='card'>
-              <p className='card__year'>2020</p>
-              <h3 className='card__title'>
-                <NavLink className='card__link'>12Storeez</NavLink>
-              </h3>
-              <p className='card__text'>
-                Finalizing the theme and developing letters
-              </p>
-              <div className='tags card__tags'>
-                <div className='tag card__tag'>Shopify</div>
-                <div className='tag card__tag'>Freelance</div>
-              </div>
-            </article>
-
-            <article className='card'>
-              <p className='card__year'>2020</p>
-              <h3 className='card__title'>
-                <NavLink className='card__link'>ParrotParcel</NavLink>
-              </h3>
-              <p className='card__text'>Website Theme Development</p>
-              <div className='tags card__tags'>
-                <div className='tag card__tag'>Shopify</div>
-                <div className='tag card__tag'>Freelance</div>
-              </div>
-            </article>
-
-            <article className='card'>
-              <p className='card__year'>2022</p>
-              <h3 className='card__title'>
-                <NavLink className='card__link'>BEGGANI</NavLink>
-              </h3>
-              <p className='card__text'>Revising an existing website theme</p>
-              <div className='tags card__tags'>
-                <div className='tag card__tag'>Shopify</div>
-                <div className='tag card__tag'>Freelance</div>
-              </div>
-            </article>
-
-            <article className='card'>
-              <p className='card__year'>2022</p>
-              <h3 className='card__title'>
-                <NavLink className='card__link'>LED Lights Design</NavLink>
-              </h3>
-              <p className='card__text'>Developing a website theme</p>
-              <div className='tags card__tags'>
-                <div className='tag card__tag'>Shopify</div>
-                <div className='tag card__tag'>Freelance</div>
-              </div>
-            </article>
-            {/* End Cards */}
+            {cards.map((card) => {
+              return <Card item={card} key={card.id} />;
+            })}
           </div>
         </div>
+      </section>
+
+      <section className='section blog'>
+        <header className='section-header'>
+          <h2 className='section-header__title'>Latest </h2>
+
+          <NavLink to='/projects' className='button'>
+            View all
+          </NavLink>
+        </header>
       </section>
     </>
   );
