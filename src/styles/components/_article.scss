@@ -1,0 +1,30 @@
+.articles {
+  .article {
+    padding: 8px 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    font-family: var(--inter);
+    line-height: 150%;
+
+    border-bottom: 1px solid var(--gray-7);
+
+    &__title {
+      font-weight: 700;
+      font-size: calc(var(--fz) * 1.125);
+      color: var(--white, #fff);
+    }
+
+    &__date {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: calc(var(--fz) * 0.875);
+      text-align: right;
+      color: #5eddac;
+    }
+  }
+}
