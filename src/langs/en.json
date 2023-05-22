@@ -1,0 +1,16 @@
+{
+  "screens": {
+    "hero": {
+      "title": "Hey, I’m Alan!",
+      "text": "Welcome to my digital garden. 🌱\nI’m a software developer in Kazan. I make web app, write about code and life. I like teaching, self-development, listening to music and playing"
+    },
+    "works": {
+      "title": "Projects",
+      "button": "View all"
+    },
+    "posts": {
+      "title": "Latest",
+      "button": "View all"
+    }
+  }
+}
