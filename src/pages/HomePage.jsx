@@ -2,6 +2,40 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Circles from "../components/Circles/Circles";
 import Card from "../components/Card";
+import { formatDate } from "../utils/formatDate";
+
+const initialStateArticles = [
+  {
+    id: 1,
+    title: "Bookkeeping: 2020",
+    date: new Date(2021, 0, 1),
+  },
+  {
+    id: 2,
+    title: "Bookkeeping: 2021",
+    date: new Date(2022, 0, 1),
+  },
+  {
+    id: 3,
+    title: "Graduation with honors from college",
+    date: new Date(2022, 5, 22),
+  },
+  {
+    id: 4,
+    title: "React Inter Roadmap",
+    date: new Date(2022, 8, 1),
+  },
+  {
+    id: 5,
+    title: "Happy New Year 2023! 🎄",
+    date: new Date(2022, 11, 31),
+  },
+  {
+    id: 6,
+    title: "Bookkeeping: 2022",
+    date: new Date(2023, 0, 1),
+  },
+];
 
 const intialStateCards = [
   {
@@ -11,7 +45,6 @@ const intialStateCards = [
     year: 2020,
     tags: ["Shopify", "Freelance"],
   },
-
   {
     id: 2,
     title: "Potted",
@@ -55,6 +88,7 @@ const intialStateCards = [
 
 const HomePage = () => {
   const [cards, setCards] = useState(intialStateCards);
+  const [articles, setArticles] = useState(initialStateArticles);
 
   return (
     <>
@@ -99,13 +133,26 @@ const HomePage = () => {
       </section>
 
       <section className='section blog'>
-        <header className='section-header'>
-          <h2 className='section-header__title'>Latest </h2>
+        <div className='container'>
+          <header className='section-header'>
+            <h2 className='section-header__title'>Latest </h2>
 
-          <NavLink to='/projects' className='button'>
-            View all
-          </NavLink>
-        </header>
+            <NavLink to='/projects' className='button'>
+              View all
+            </NavLink>
+          </header>
+
+          <ul className='articles'>
+            {articles.map((article) => {
+              return (
+                <li className='article' key={article.id}>
+                  <NavLink className='article__title'>{article.title}</NavLink>
+                  <p className='article__date'>{formatDate(article.date)}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </section>
     </>
   );
