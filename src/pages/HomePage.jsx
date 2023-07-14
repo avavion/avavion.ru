@@ -90,7 +90,7 @@ const HomePage = () => {
   const [articles, setArticles] = useState(initialStateArticles);
 
   const fetchProjects = useCallback(async () => {
-    const response = await projectRepository.getFilteredProject();
+    const response = await projectRepository.getFilteredProject("all", 1, 6);
 
     setCards(response.data.data.items);
   }, []);
