@@ -1,5 +1,9 @@
 .articles {
   .article {
+
+    --green: #5eddac;
+    --title: var(--white);
+
     padding: 8px 0;
 
     display: flex;
@@ -12,19 +16,23 @@
 
     border-bottom: 1px solid var(--gray-7);
 
+    @media (prefers-color-scheme: light) {
+      --title: var(--gray-7);
+    }
+
     &__title {
       font-weight: 700;
       font-size: calc(var(--fz) * 1.125);
-      color: var(--white, #fff);
+      color: var(--title, #fff);
     }
 
     &__date {
-      font-family: "Inter";
+      font-family: var(--inter);
       font-style: normal;
       font-weight: 400;
       font-size: calc(var(--fz) * 0.875);
       text-align: right;
-      color: #5eddac;
+      color: var(--green);
     }
   }
 }

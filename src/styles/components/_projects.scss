@@ -26,6 +26,26 @@
     border-radius: 6px;
     color: var(--title);
 
+    &-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__stars {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+
+      font-size: 12px;
+
+      svg path:last-child {
+        fill: var(--yellow, rgb(246, 205, 93));
+      }
+    }
+
     &__year {
       font-weight: 500;
       font-size: calc(var(--fz) * 0.75);
@@ -53,6 +73,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: flex-start;
+      flex-wrap: wrap;
       gap: 8px;
 
       .tag {

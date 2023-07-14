@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Circles from "../components/Circles/Circles";
 import Card from "../components/Card";
 import { formatDate } from "../utils/formatDate";
+import ProjectRepository from "../repositories/ProjectRepository";
 
 const initialStateArticles = [
   {
@@ -38,57 +39,65 @@ const initialStateArticles = [
 ];
 
 const intialStateCards = [
-  {
-    id: 1,
-    title: "PharmaBoosters",
-    text: "Finalizing the theme and fixing bugs",
-    year: 2020,
-    tags: ["Shopify", "Freelance"],
-  },
-  {
-    id: 2,
-    title: "Potted",
-    text: "Refining the customer's theme",
-    year: 2020,
-    tags: ["Shopify", "Freelance"],
-  },
-
-  {
-    id: 3,
-    title: "12Storezz",
-    text: "Finalizing the theme and developing letters",
-    year: 2020,
-    tags: ["Shopify", "Freelance"],
-  },
-
-  {
-    id: 4,
-    title: "ParrotPercel",
-    text: "Website Theme Development",
-    year: 2020,
-    tags: ["Shopify", "Freelance"],
-  },
-
-  {
-    id: 5,
-    title: "BEGGANI",
-    text: "Revising an existing website theme",
-    year: 2022,
-    tags: ["Shopify", "Freelance"],
-  },
-
-  {
-    id: 6,
-    title: "LED Ligths Design",
-    text: "Developing a website theme",
-    year: 2022,
-    tags: ["Shopify", "Freelance"],
-  },
+  // {
+  //   id: 1,
+  //   title: "PharmaBoosters",
+  //   text: "Finalizing the theme and fixing bugs",
+  //   year: 2020,
+  //   tags: ["Shopify", "Freelance"],
+  // },
+  // {
+  //   id: 2,
+  //   title: "Potted",
+  //   text: "Refining the customer's theme",
+  //   year: 2020,
+  //   tags: ["Shopify", "Freelance"],
+  // },
+  // {
+  //   id: 3,
+  //   title: "12Storezz",
+  //   text: "Finalizing the theme and developing letters",
+  //   year: 2020,
+  //   tags: ["Shopify", "Freelance"],
+  // },
+  // {
+  //   id: 4,
+  //   title: "ParrotPercel",
+  //   text: "Website Theme Development",
+  //   year: 2020,
+  //   tags: ["Shopify", "Freelance"],
+  // },
+  // {
+  //   id: 5,
+  //   title: "BEGGANI",
+  //   text: "Revising an existing website theme",
+  //   year: 2022,
+  //   tags: ["Shopify", "Freelance"],
+  // },
+  // {
+  //   id: 6,
+  //   title: "LED Ligths Design",
+  //   text: "Developing a website theme",
+  //   year: 2022,
+  //   tags: ["Shopify", "Freelance"],
+  // },
 ];
 
 const HomePage = () => {
+  const projectRepository = new ProjectRepository();
+
   const [cards, setCards] = useState(intialStateCards);
   const [articles, setArticles] = useState(initialStateArticles);
+
+  const fetchProjects = useCallback(async () => {
+    const response = await projectRepository.getFilteredProject();
+
+    setCards(response.data.data.items);
+  }, []);
+
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
 
   return (
     <>

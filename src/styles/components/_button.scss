@@ -1,5 +1,15 @@
 .button {
   --text: var(--gray-2);
+  --hover: var(--white);
+  --bg: var(--gray-8);
+
+  @media (prefers-color-scheme: light) {
+    --text: var(--white, #fff);
+    --hover: var(--gray-8);
+    --bg: var(--gray-8, #fff);
+    --bg-hover: var(--white, #fff);
+  }
+
   border: none;
   outline: none;
 
@@ -16,16 +26,17 @@
 
   padding: 12px 20px;
 
-  background-color: #252525;
+  background-color: var(--bg);
   border-radius: 24px;
 
   cursor: pointer;
 
-  @media (prefers-color-scheme: light) {
-    --text: var(--gray-8);
-  }
+  transition-property: color, background-color;
+  transition-timing-function: var(--animation-effect, ease-in-out);
+  transition-duration: var(--animation-duration, 0.3s);
 
   &:hover {
-    color: #fff;
+    color: var(--hover, #fff);
+    background-color: var(--bg-hover);
   }
 }
