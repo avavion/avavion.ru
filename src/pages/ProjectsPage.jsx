@@ -1,11 +1,5 @@
-import React from 'react'
-
 const ProjectsPage = () => {
-  return (
-    <section className='section'>
+  return <section className='section'></section>;
+};
 
-    </section>
-  )
-}
-
-export default ProjectsPage
+export default ProjectsPage;

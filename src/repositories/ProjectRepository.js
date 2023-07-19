@@ -8,6 +8,12 @@ class ProjectRepository extends HttpRequest {
 
     return this.get(urlWithParams);
   }
+
+  async getProjectById(id) {
+    const urlWithParams = `/projects/get/${id}`;
+
+    return this.get(urlWithParams);
+  }
 }
 
 export default ProjectRepository;
