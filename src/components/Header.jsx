@@ -36,6 +36,12 @@ const Header = () => {
                 </NavLink>
               </li>
 
+<li className='item'>
+	  <NavLink target="_blank" to='https://t.me/+KQToBm1OWW0wMGZi' className='link'>
+	  Telegram Channel
+	  </NavLink>
+	  </li>
+
               <li className='item'>
                 <NavLink
                   target='_blank'
