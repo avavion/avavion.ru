@@ -84,20 +84,20 @@ const intialStateCards = [
 ];
 
 const HomePage = () => {
-  const projectRepository = new ProjectRepository();
+  // const projectRepository = new ProjectRepository();
 
-  const [cards, setCards] = useState(intialStateCards);
-  const [articles, setArticles] = useState(initialStateArticles);
+  // const [cards, setCards] = useState(intialStateCards);
+  // const [articles, setArticles] = useState(initialStateArticles);
 
-  const fetchProjects = useCallback(async () => {
-    const response = await projectRepository.getFilteredProject("all", 1, 6);
+  // const fetchProjects = useCallback(async () => {
+  //   const response = await projectRepository.getFilteredProject("all", 1, 6);
 
-    setCards(response.data.data.items);
-  }, []);
+  //   setCards(response.data.data.items);
+  // }, []);
 
-  useEffect(() => {
-    fetchProjects();
-  }, [fetchProjects]);
+  // useEffect(() => {
+  //   fetchProjects();
+  // }, [fetchProjects]);
 
   return (
     <>
@@ -123,7 +123,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className='section project'>
+      {/* <section className='section project'>
         <div className='container'>
           <header className='section-header'>
             <h2 className='section-header__title'>Projects</h2>
@@ -139,8 +139,8 @@ const HomePage = () => {
             })}
           </div>
         </div>
-      </section>
-
+      </section> */}
+{/* 
       <section className='section blog'>
         <div className='container'>
           <header className='section-header'>
@@ -162,7 +162,7 @@ const HomePage = () => {
             })}
           </ul>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
